@@ -8,13 +8,13 @@ export default function Page() {
         {cookies.map((cookie) => (
           <div
             key={cookie.id}
-            className="rounded overflow-hidden bg-orange-100"
+            className="rounded overflow-hidden bg-orange-100 cursor-pointer hover:bg-orange-200 transition-colors duration-500"
           >
-            <div className="relative w-full pb-[100%]">
+            <div className="relative w-full pb-[100%] overflow-hidden">
               <img
                 src={cookie.image_url}
                 alt={cookie.name}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
               />
             </div>
             <div className="p-2">
