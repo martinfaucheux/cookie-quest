@@ -27,13 +27,13 @@ export const cookies = [
     id: "c3d4e5f6-7890-1234-5678-901234567890",
     name: "Oatmeal Raisin",
     image_url:
-      "https://images.unsplash.com/photo-1590080876353-bbd734e72c09?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1600147566401-c2056eb69479?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "d4e5f6g7-8901-2345-6789-012345678901",
     name: "Peanut Butter Bliss",
     image_url:
-      "https://images.unsplash.com/photo-1563224064596-682b47e4ae74?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1657418830273-40c19cfff4d7?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "e5f6g7h8-9012-3456-7890-123456789012",
@@ -45,19 +45,19 @@ export const cookies = [
     id: "f6g7h8i9-0123-4567-8901-234567890123",
     name: "Macadamia Nut Dream",
     image_url:
-      "https://images.unsplash.com/photo-1600355440934-0b6a9cbac9b0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1639678114429-a915fdb55000?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "g7h8i9j0-1234-5678-9012-345678901234",
     name: "Snickerdoodle Special",
     image_url:
-      "https://images.unsplash.com/photo-1589227365533-cef49f4f1e0d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1582623201359-74e936ed48c4?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "h8i9j0k1-2345-6789-0123-456789012345",
     name: "Ginger Snap Crunch",
     image_url:
-      "https://images.unsplash.com/photo-1584134584571-5009920d4348?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1695865414374-903a800cce8b?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "i9j0k1l2-3456-7890-1234-567890123456",
