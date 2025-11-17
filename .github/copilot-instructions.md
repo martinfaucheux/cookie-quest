@@ -13,3 +13,32 @@ This project is an app called Cookie Quest. It allows users to reference and tra
 
 [] plug a database to store user, cookies and shops
 [] make the app a pwa
+
+## forcast database schema
+
+- User table
+  - id (primary key)
+  - username
+  - email
+  - password_hash
+  - profile picture
+  - created_at
+  - updated_at
+- Cookie table
+  - id (primary key)
+  - name
+  - description
+  - images
+  - reference to shop
+  - created_at
+- Shop table
+  - id (primary key)
+  - name
+  - location
+  - created_at
+  - updated_at
+
+Unsure:
+
+- relation between a user and a cookie (favorite, added, reviewed?)
+- relation between a user and a shop (favorite, added, reviewed?)
