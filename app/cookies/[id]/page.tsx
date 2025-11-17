@@ -1,11 +1,10 @@
-import { cookies } from "../../lib/placeholder-data";
 import Image from "next/image";
 import Breadcrumbs from "@/app/ui/breadcrumbs";
-
+import { fetchCookieById } from "@/app/lib/data";
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const id = params.id;
-  const cookie = cookies.find((cookie) => cookie.id === id);
+  const cookie = await fetchCookieById(id);
 
   if (!cookie) {
     return <div className="p-4">Cookie not found</div>;
@@ -24,7 +23,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
           {/* Image container - full width on mobile, left side on desktop */}
           <div className="flex items-start justify-center w-full mb-6 md:mb-0 md:w-1/3 md:h-full">
             <Image
-              src={cookie.image_url}
+              src={cookie.imageUrl}
               alt={cookie.name}
               width="400"
               height="400"

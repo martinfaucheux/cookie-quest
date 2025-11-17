@@ -11,3 +11,14 @@ export async function fetchCookies() {
     throw error;
   }
 }
+
+export async function fetchCookieById(id: string) {
+  try {
+    await connectMongoDB();
+    const cookie = await Cookie.findById(id);
+    return cookie;
+  } catch (error) {
+    console.error(`Error fetching cookie with id ${id}:`, error);
+    throw error;
+  }
+}
