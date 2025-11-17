@@ -11,6 +11,7 @@ This project is an app called Cookie Quest. It allows users to reference and tra
 
 # Left to do
 
+[] add authentication with google
 [] plug a database to store user, cookies and shops
 [] make the app a pwa
 
