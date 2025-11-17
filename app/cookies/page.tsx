@@ -3,14 +3,23 @@ import Link from "next/link";
 import { fetchCookies } from "../lib/data";
 
 export default async function Page() {
-  const cookies = await fetchCookies();
+  const cookies = [];
+  // const cookies = await fetchCookies();
 
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Cookies List</h1>
       {cookies.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
-          <div className="text-6xl mb-4">🍪</div>
+          <div className="mb-6">
+            <Image
+              src="/cookie-icon.svg"
+              alt="Cookie icon"
+              width={96}
+              height={96}
+              className="opacity-60"
+            />
+          </div>
           <h2 className="text-xl font-semibold text-gray-700 mb-2">
             No cookies found
           </h2>
