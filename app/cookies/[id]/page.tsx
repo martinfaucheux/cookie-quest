@@ -10,17 +10,17 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   }
 
   return (
-    <div className="p-4 flex flex-row">
-      <div className="w-64 h-64 mb-4">
+    <div className="flex flex-row h-screen">
+      <div className="w-1/4 h-full flex items-start justify-center bg-gray-50">
         <Image
           src={cookie.image_url}
           alt={cookie.name}
           width="400"
           height="400"
-          className="rounded"
+          className="max-w-full max-h-full object-contain"
         />
       </div>
-      <main className="p-4">
+      <main className="w-3/4 p-4">
         <h1 className="text-2xl font-bold mb-4">{cookie.name}</h1>
         <p>{cookie.description}</p>
       </main>
