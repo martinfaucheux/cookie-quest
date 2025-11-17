@@ -3,8 +3,7 @@ import Link from "next/link";
 import { fetchCookies } from "../lib/data";
 
 export default async function Page() {
-  const cookies = [];
-  // const cookies = await fetchCookies();
+  const cookies = await fetchCookies();
 
   return (
     <div className="p-4">
