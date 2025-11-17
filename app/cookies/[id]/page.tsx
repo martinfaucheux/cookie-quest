@@ -20,7 +20,10 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
           className="rounded"
         />
       </div>
-      <h1 className="text-2xl font-bold mb-4">{cookie.name}</h1>
+      <main className="p-4">
+        <h1 className="text-2xl font-bold mb-4">{cookie.name}</h1>
+        <p>{cookie.description}</p>
+      </main>
     </div>
   );
 }

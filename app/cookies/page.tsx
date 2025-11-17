@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Cookies List</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+      <main className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
         {cookies.map((cookie) => (
           <Link key={cookie.id} href={`/cookies/${cookie.id}`}>
             <div
@@ -30,7 +30,7 @@ export default function Page() {
             </div>
           </Link>
         ))}
-      </div>
+      </main>
     </div>
   );
 }
