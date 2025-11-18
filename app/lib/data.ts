@@ -1,5 +1,5 @@
 import Cookie from "./models/models";
-import connectMongoDB from "./mongodbConnection";
+import connectMongoDB from "./db";
 
 export async function fetchCookies() {
   try {
