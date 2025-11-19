@@ -37,11 +37,11 @@ export const UserDropdown = ({ user }: UserDropdownProps) => {
           Settings
         </Link>
 
-        <hr className="my-1" />
+        <hr className="my-1  border-gray-200" />
 
         <button
           onClick={handleLogout}
-          className="block w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50 transition-colors"
+          className="block w-full text-left px-4 py-2 text-sm text-orange-700 hover:bg-orange-50 transition-colors rounded-b-lg"
         >
           Logout
         </button>
