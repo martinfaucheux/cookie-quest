@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { fetchCookies } from "../lib/data";
+import CreateCookieButton from "@/app/ui/cookies/createCookieButton";
 
 export default async function Page() {
   const cookies = await fetchCookies();
 
   return (
     <div className="p-4">
-      <div className="flex flex-row">
-        <h1 className="text-2xl font-bold mb-4 grow">Cookies List</h1>
-        <div>coucou</div>
+      <div className="flex flex-row items-center mb-4">
+        <h1 className="text-2xl font-bold grow">Cookies List</h1>
+        <CreateCookieButton />
       </div>
       {cookies.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
