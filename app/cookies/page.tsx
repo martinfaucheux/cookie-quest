@@ -7,7 +7,10 @@ export default async function Page() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Cookies List</h1>
+      <div className="flex flex-row">
+        <h1 className="text-2xl font-bold mb-4 grow">Cookies List</h1>
+        <div>coucou</div>
+      </div>
       {cookies.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
           <div className="mb-6">

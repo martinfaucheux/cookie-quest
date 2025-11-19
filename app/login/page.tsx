@@ -1,6 +1,40 @@
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+
+interface AuthButtonProps {
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  children: React.ReactNode;
+  image?: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  };
+}
+
+function AuthButton({ onClick, children, image }: AuthButtonProps) {
+  return (
+    <button
+      type="button"
+      className={`mx-auto mt-2 p-2 rounded cursor-pointer transition duration-300 border flex flex-row items-center gap-2 text-amber-900 bg-white border-orange-900 hover:bg-orange-200 ${
+        image ? "flex flex-row items-center gap-2" : ""
+      }`}
+      onClick={onClick}
+    >
+      {image && (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={image.width || 20}
+          height={image.height || 20}
+        />
+      )}
+      <span>{children}</span>
+    </button>
+  );
+}
 
 export default function Page() {
   const { data: session } = useSession();
@@ -17,32 +51,34 @@ export default function Page() {
               <p className="text-amber-900 text-center">
                 Yo are signed in as {session.user.email}
               </p>
-              <button
-                type="button"
-                className="text-amber-900 mx-auto mt-2 p-2 rounded bg-orange-300"
+              <AuthButton
                 onClick={(e) => {
                   e.preventDefault();
                   signOut();
                 }}
               >
                 Sign out
-              </button>
+              </AuthButton>
             </>
           ) : (
             <>
               <p className="text-amber-900 text-center">
                 Your quest for the best cookies starts here
               </p>
-              <button
-                type="button"
-                className="text-amber-900 mx-auto mt-2 p-2 rounded bg-orange-300"
+              <AuthButton
                 onClick={(e) => {
                   e.preventDefault();
                   signIn("google", { callbackUrl: "/cookies" });
                 }}
+                image={{
+                  src: "/google-logo.png",
+                  alt: "Google Logo",
+                  width: 20,
+                  height: 20,
+                }}
               >
                 Sign in with Google
-              </button>
+              </AuthButton>
             </>
           )}
         </div>
