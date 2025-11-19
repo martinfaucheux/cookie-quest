@@ -7,13 +7,17 @@ This project is an app called Cookie Quest. It allows users to reference and tra
 - The app is built with Next.js
 - The styling is done using Tailwind CSS
 - The app uses React for the frontend components
+- Authentication is handled using NextAuth.js with Google as the provider, and uses JWT for session management
 - The app is deployed on Vercel
 
 # Left to do
 
-[] add authentication with google
-[] plug a database to store user, cookies and shops
-[] make the app a pwa
+[] allow to create new cookies entry
+
+- disallow creation for non logged in users
+  [] add a shop model
+  [] support FR language
+  [] make the app a pwa
 
 ## forcast database schema
 
