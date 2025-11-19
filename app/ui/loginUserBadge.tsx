@@ -24,8 +24,8 @@ export const LoginUserBadge = () => {
       <UserDropdown user={session.user} />
     </div>
   ) : (
-    <Link href="/login" className="h-full flex items-center">
-      <button className="text-white px-4 py-4 h-full hover:bg-opacity-30 transition-colors duration-200">
+    <Link href="/login" className="h-full flex items-center group">
+      <button className="text-white px-4 py-4 h-full group-hover:bg-orange-900 transition-colors duration-200">
         Login
       </button>
     </Link>
