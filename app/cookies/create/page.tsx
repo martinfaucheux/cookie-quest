@@ -1,10 +1,10 @@
-import Modal from "@/app/ui/modal";
+import CreateCookieModal from "@/app/ui/cookies/createCookieModal";
 
 export default async function Page() {
   return (
     <div>
       <h1>Create a New Cookie</h1>
-      <Modal />
+      <CreateCookieModal />
     </div>
   );
 }

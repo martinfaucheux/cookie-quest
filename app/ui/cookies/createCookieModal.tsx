@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const Modal = () => {
+const CreateCookieModal = () => {
   const [openModal, setModal] = useState(false);
   const handleModal = () => {
     setModal(!openModal);
@@ -67,4 +67,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default CreateCookieModal;
