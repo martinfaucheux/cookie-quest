@@ -38,7 +38,7 @@ export default function Page() {
                 className="text-amber-900 mx-auto mt-2 p-2 rounded bg-orange-300"
                 onClick={(e) => {
                   e.preventDefault();
-                  signIn("google");
+                  signIn("google", { callbackUrl: "/cookies" });
                 }}
               >
                 Sign in with Google
