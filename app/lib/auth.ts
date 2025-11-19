@@ -3,7 +3,13 @@ import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { MongoClient } from "mongodb";
 
-const mongClient = new MongoClient(process.env.MONGODB_URI!);
+// Ensure MONGODB_URI is available
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+  throw new Error("Please add your MongoDB URI to .env file");
+}
+
+const mongClient = new MongoClient(uri);
 const clientPromise = mongClient.connect();
 
 export const authOptions = {
