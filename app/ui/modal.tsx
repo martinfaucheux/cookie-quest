@@ -30,6 +30,20 @@ const Modal = () => {
                 Add a new entry to your Cookiepedia!
               </p>
             </div>
+            <form className="flex flex-col px-4 mb-4 gap-2">
+              <label className="text-amber-950 ml-2">Name</label>
+              <input
+                type="text"
+                placeholder="Cookie Name"
+                className="border border-amber-950 p-2 rounded-md mb-2"
+              />
+              <label className="text-amber-950 ml-2">Description</label>
+              <textarea
+                className="w-full border border-amber-950 rounded-md p-2 mb-4"
+                placeholder="Cookie Description"
+              />
+            </form>
+
             <div className="flex justify-end items-center px-4 gap-2">
               <button
                 type="button"
