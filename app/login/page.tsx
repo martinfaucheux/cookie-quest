@@ -2,6 +2,7 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { Button } from "@/app/ui/button";
 
 interface AuthButtonProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -51,34 +52,36 @@ export default function Page() {
               <p className="text-amber-900 text-center">
                 Yo are signed in as {session.user.email}
               </p>
-              <AuthButton
+              <Button
                 onClick={(e) => {
                   e.preventDefault();
                   signOut();
                 }}
+                className="mx-auto mt-2"
               >
                 Sign out
-              </AuthButton>
+              </Button>
             </>
           ) : (
             <>
               <p className="text-amber-900 text-center">
                 Your quest for the best cookies starts here
               </p>
-              <AuthButton
+              <Button
                 onClick={(e) => {
                   e.preventDefault();
                   signIn("google", { callbackUrl: "/cookies" });
                 }}
-                image={{
-                  src: "/google-logo.png",
-                  alt: "Google Logo",
-                  width: 20,
-                  height: 20,
-                }}
+                className="flex flex-row items-center gap-2 mx-auto mt-2"
               >
-                Sign in with Google
-              </AuthButton>
+                <Image
+                  src="/google-logo.png"
+                  alt="Google Logo"
+                  width={20}
+                  height={20}
+                />
+                <span>Sign in with Google</span>
+              </Button>
             </>
           )}
         </div>

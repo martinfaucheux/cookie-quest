@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useActionState } from "react";
 import { createCookie, CreateCookieState } from "@/app/lib/actions/cookies";
+import { Button } from "@/app/ui/button";
 
 const CreateCookieModal = () => {
   const [openModal, setModal] = useState(false);
@@ -135,12 +136,9 @@ const CreateCookieModal = () => {
                 >
                   Close
                 </button>
-                <button
-                  type="submit"
-                  className="h-8 px-2 text-sm rounded-md border border-orange-900 text-orange-900 cursor-pointer"
-                >
+                <Button type="submit" className="text-sm">
                   Add Cookie
-                </button>
+                </Button>
               </div>{" "}
             </form>
           </div>
