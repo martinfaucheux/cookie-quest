@@ -5,7 +5,7 @@ import { useActionState } from "react";
 import { createCookie, CreateCookieState } from "@/app/lib/actions/cookies";
 import { Button } from "@/app/ui/button";
 
-const CreateCookieModal = () => {
+const CreateCookieModalButton = () => {
   const [openModal, setModal] = useState(false);
   const [fileError, setFileError] = useState<string | null>(null);
 
@@ -45,16 +45,15 @@ const CreateCookieModal = () => {
 
   return (
     <div>
-      <button
-        type="button"
-        className="h-10 px-4 font-medium text-sm rounded-md text-white bg-gray-900 cursor-pointer"
-        onClick={handleModal}
-      >
-        Open Modal
-      </button>
+      <Button type="button" onClick={handleModal}>
+        Create new Cookie
+      </Button>
       {openModal && (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center">
-          <div className="max-w-[460px] bg-white shadow-lg py-2 rounded-md border border-gray-300">
+        <div
+          className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+        >
+          <div className="max-w-[460px] bg-white shadow-lg py-2 rounded-md border border-gray-300 z-50">
             <form action={formAction}>
               <h1 className="text-xl font-bold  text-gray-900 border-b border-gray-300 py-3 px-4 mb-4">
                 Add a new Cookie
@@ -149,4 +148,4 @@ const CreateCookieModal = () => {
   );
 };
 
-export default CreateCookieModal;
+export default CreateCookieModalButton;
