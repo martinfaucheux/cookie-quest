@@ -49,10 +49,24 @@ const CreateCookieModal = () => {
                 <label className="text-amber-950 ml-2">Description</label>
                 <textarea
                   name="description"
-                  className="w-full border border-amber-950 rounded-md p-2 mb-4"
+                  className="w-full border border-amber-950 rounded-md p-2 "
                   placeholder="Cookie Description"
                   required
                 />
+              </div>
+              <div className="flex flex-col px-4 mb-4 gap-2">
+                <label className="text-amber-950 ml-2">Image</label>
+                <input
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  className="border border-amber-950 p-2 rounded-md"
+                  // Optional: add multiple attribute for multiple images
+                  // multiple
+                />
+                <p className="text-xs text-gray-500 ml-2">
+                  Upload a photo of your cookie (JPG, PNG, or WebP)
+                </p>
               </div>
               <div className="flex justify-end items-center px-4 gap-2">
                 <button
