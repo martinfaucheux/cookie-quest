@@ -19,5 +19,5 @@ export function DeleteCookieButton({
   }
 
   const deleteCookieWithId = deleteCookie.bind(null, id);
-  return <Button onClick={deleteCookieWithId}>Delete Cookie</Button>;
+  return <Button onClick={deleteCookieWithId}>Supprimer Cookie</Button>;
 }

@@ -25,7 +25,7 @@ const CreateCookieModalButton = () => {
     if (file) {
       // Check file size (5MB limit)
       if (file.size > 5 * 1024 * 1024) {
-        setFileError("File size must be less than 5MB");
+        setFileError("La taille du fichier doit être inférieure à 5MB");
         e.target.value = "";
         return;
       }
@@ -33,7 +33,9 @@ const CreateCookieModalButton = () => {
       // Check file type
       const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
       if (!allowedTypes.includes(file.type)) {
-        setFileError("Please upload a valid image file (JPEG, PNG, or WebP)");
+        setFileError(
+          "Veuillez télécharger un fichier image valide (JPEG, PNG, ou WebP)"
+        );
         e.target.value = "";
         return;
       }
@@ -46,7 +48,7 @@ const CreateCookieModalButton = () => {
   return (
     <div>
       <Button type="button" onClick={handleModal}>
-        Create new Cookie
+        Créer un nouveau Cookie
       </Button>
       {openModal && (
         <div
@@ -56,19 +58,19 @@ const CreateCookieModalButton = () => {
           <div className="max-w-[460px] bg-white shadow-lg py-2 rounded-md border border-gray-300 z-50">
             <form action={formAction}>
               <h1 className="text-xl font-bold  text-gray-900 border-b border-gray-300 py-3 px-4 mb-4">
-                Add a new Cookie
+                Ajouter un nouveau Cookie
               </h1>
               <div className="px-4 pb-4">
                 <p className="text-sm font-medium text-gray-700">
-                  Add a new entry to your Cookiepedia!
+                  Ajoutez une nouvelle entrée à votre Cookiepédia !
                 </p>
               </div>
               <div className="flex flex-col px-4 mb-4 gap-2">
-                <label className="text-amber-950 ml-2">Name</label>
+                <label className="text-amber-950 ml-2">Nom</label>
                 <input
                   type="text"
                   name="name"
-                  placeholder="Cookie Name"
+                  placeholder="Nom du Cookie"
                   className="border border-amber-950 p-2 rounded-md mb-2"
                   aria-describedby="name-error"
                   required
@@ -85,7 +87,7 @@ const CreateCookieModalButton = () => {
                 <textarea
                   name="description"
                   className="w-full border border-amber-950 rounded-md p-2 "
-                  placeholder="Cookie Description"
+                  placeholder="Description du Cookie"
                   aria-describedby="description-error"
                   required
                 />
@@ -113,7 +115,8 @@ const CreateCookieModalButton = () => {
                   onChange={handleFileChange}
                 />
                 <p className="text-xs text-gray-500 ml-2">
-                  Upload a photo of your cookie (JPG, PNG, or WebP, max 5MB)
+                  Téléchargez une photo de votre cookie (JPG, PNG, ou WebP, max
+                  5MB)
                 </p>
                 <div id="image-error" aria-live="polite" aria-atomic="true">
                   {fileError && (
@@ -134,10 +137,10 @@ const CreateCookieModalButton = () => {
                   className="text-sm"
                   variant="secondary"
                 >
-                  Close
+                  Fermer
                 </Button>
                 <Button type="submit" className="text-sm">
-                  Add Cookie
+                  Ajouter Cookie
                 </Button>
               </div>{" "}
             </form>

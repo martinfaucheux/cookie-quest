@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <div className="p-4">
       <div className="flex flex-row items-center mb-4">
-        <h1 className="text-2xl font-bold grow">Cookies List</h1>
+        <h1 className="text-2xl font-bold grow">Liste des Cookies</h1>
         <CreateCookieButton />
       </div>
       {cookies.length === 0 ? (
@@ -17,21 +17,22 @@ export default async function Page() {
           <div className="mb-6">
             <Image
               src="/cookie-icon.svg"
-              alt="Cookie icon"
+              alt="Icône de cookie"
               width={96}
               height={96}
               className="opacity-60"
             />
           </div>
           <h2 className="text-xl font-semibold text-gray-700 mb-2">
-            No cookies found
+            Aucun cookie trouvé
           </h2>
           <p className="text-gray-500 mb-6 max-w-md">
-            It looks like there are no cookies in our collection yet. Start by
-            adding some delicious cookies to share with the community!
+            Il semble qu'il n'y ait pas encore de cookies dans notre collection.
+            Commencez par ajouter de délicieux cookies à partager avec la
+            communauté !
           </p>
           {/* <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-            Add Your First Cookie
+            Ajouter votre premier Cookie
           </button> */}
         </div>
       ) : (

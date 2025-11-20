@@ -50,7 +50,7 @@ export default function Page() {
           {session?.user ? (
             <>
               <p className="text-amber-900 text-center">
-                Yo are signed in as {session.user.email}
+                Vous êtes connecté en tant que {session.user.email}
               </p>
               <Button
                 onClick={(e) => {
@@ -59,13 +59,13 @@ export default function Page() {
                 }}
                 className="mx-auto mt-2"
               >
-                Sign out
+                Se déconnecter
               </Button>
             </>
           ) : (
             <>
               <p className="text-amber-900 text-center">
-                Your quest for the best cookies starts here
+                Votre quête des meilleurs cookies commence ici
               </p>
               <Button
                 onClick={(e) => {
@@ -76,11 +76,11 @@ export default function Page() {
               >
                 <Image
                   src="/google-logo.png"
-                  alt="Google Logo"
+                  alt="Logo Google"
                   width={20}
                   height={20}
                 />
-                <span>Sign in with Google</span>
+                <span>Se connecter avec Google</span>
               </Button>
             </>
           )}

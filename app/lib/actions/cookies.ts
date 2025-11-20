@@ -36,7 +36,7 @@ export async function createCookie(
   if (!session || !session.user?.id) {
     return {
       errors: {},
-      message: "You must be logged in to create a cookie.",
+      message: "Vous devez être connecté pour créer un cookie.",
     };
   }
   const validatedFields = CookieFormSchema.safeParse({
@@ -50,7 +50,7 @@ export async function createCookie(
         ...validatedFields.error.flatten().fieldErrors,
         image: undefined,
       },
-      message: "Missing Fields. Failed to Create Cookie.",
+      message: "Champs manquants. Échec de création du cookie.",
     };
   }
   const { name, description } = validatedFields.data;
@@ -66,9 +66,11 @@ export async function createCookie(
         errors: {
           name: undefined,
           description: undefined,
-          image: ["Please upload a valid image file (JPEG, PNG, or WebP)"],
+          image: [
+            "Veuillez télécharger un fichier image valide (JPEG, PNG, ou WebP)",
+          ],
         },
-        message: "Invalid image format.",
+        message: "Format d'image invalide.",
       };
     }
 
@@ -77,9 +79,9 @@ export async function createCookie(
         errors: {
           name: undefined,
           description: undefined,
-          image: ["Image file size must be less than 5MB"],
+          image: ["La taille du fichier image doit être inférieure à 5MB"],
         },
-        message: "Image file too large.",
+        message: "Fichier image trop volumineux.",
       };
     }
 
@@ -97,9 +99,9 @@ export async function createCookie(
         errors: {
           name: undefined,
           description: undefined,
-          image: ["Failed to upload image. Please try again."],
+          image: ["Échec du téléchargement de l'image. Veuillez réessayer."],
         },
-        message: "Image upload failed.",
+        message: "Échec du téléchargement de l'image.",
       };
     }
   }
@@ -115,7 +117,7 @@ export async function createCookie(
     console.error("Failed to create cookie:", error);
     return {
       errors: {},
-      message: "Failed to create cookie. Please try again.",
+      message: "Échec de création du cookie. Veuillez réessayer.",
     };
   }
 
@@ -128,18 +130,20 @@ export async function deleteCookie(id: string) {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user?.id) {
-    throw new Error("You must be logged in to delete a cookie.");
+    throw new Error("Vous devez être connecté pour supprimer un cookie.");
   }
 
   const cookie = await Cookie.findById(id);
 
   if (!cookie) {
-    throw new Error("Cookie not found.");
+    throw new Error("Cookie non trouvé.");
   }
 
   // Check if the current user is the creator of the cookie
   if (cookie.createdBy !== session.user.id) {
-    throw new Error("You can only delete cookies you created.");
+    throw new Error(
+      "Vous ne pouvez supprimer que les cookies que vous avez créés."
+    );
   }
 
   // Only delete from Vercel Blob if the image URL is from Vercel Blob

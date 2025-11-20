@@ -10,7 +10,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const cookie = await fetchCookieById(id);
 
   if (!cookie) {
-    return <div className="p-4">Cookie not found</div>;
+    return <div className="p-4">Cookie non trouvé</div>;
   }
 
   return (
