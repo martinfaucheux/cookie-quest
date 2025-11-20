@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Breadcrumbs from "@/app/ui/breadcrumbs";
 import { fetchCookieById } from "@/app/lib/data";
+import { Button } from "@/app/ui/button";
+import { DeleteCookieButton } from "@/app/ui/cookies/deleteButton";
+
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const id = params.id;
@@ -36,9 +39,14 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
             <h1 className="text-2xl font-bold mb-4 md:text-3xl text-amber-900">
               {cookie.name}
             </h1>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed grow">
               {cookie.description}
             </p>
+            <div className="flex justify-end mt-4">
+              <div className="w-auto">
+                <DeleteCookieButton id={cookie.id} />
+              </div>
+            </div>
           </main>
         </div>
       </div>

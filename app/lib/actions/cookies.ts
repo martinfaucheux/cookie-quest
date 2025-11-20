@@ -4,7 +4,7 @@ import { z } from "zod";
 import Cookie from "@/app/lib/models/models";
 import { redirect } from "next/dist/client/components/navigation";
 import { revalidatePath } from "next/cache";
-import { put } from "@vercel/blob";
+import { put, del } from "@vercel/blob";
 
 // Image validation constants
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
@@ -101,4 +101,26 @@ export async function createCookie(
 
   revalidatePath("/cookies");
   redirect("/cookies");
+}
+
+export async function deleteCookie(id: string) {
+  const cookie = await Cookie.findById(id);
+
+  if (cookie) {
+    // Only delete from Vercel Blob if the image URL is from Vercel Blob
+    if (
+      cookie.imageUrl &&
+      cookie.imageUrl.includes("blob.vercel-storage.com")
+    ) {
+      try {
+        await del(cookie.imageUrl);
+      } catch (error) {
+        console.error("Failed to delete image from Vercel Blob:", error);
+        // Continue with cookie deletion even if image deletion fails
+      }
+    }
+    await Cookie.deleteOne({ _id: id });
+    revalidatePath("/cookies");
+    redirect("/cookies");
+  }
 }
