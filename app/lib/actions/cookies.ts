@@ -5,6 +5,8 @@ import Cookie from "@/app/lib/models/models";
 import { redirect } from "next/dist/client/components/navigation";
 import { revalidatePath } from "next/cache";
 import { put, del } from "@vercel/blob";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/lib/auth";
 
 // Image validation constants
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
@@ -28,6 +30,15 @@ export async function createCookie(
   prevState: CreateCookieState,
   formData: FormData
 ) {
+  // Get the current user session
+  const session = await getServerSession(authOptions);
+
+  if (!session || !session.user?.id) {
+    return {
+      errors: {},
+      message: "You must be logged in to create a cookie.",
+    };
+  }
   const validatedFields = CookieFormSchema.safeParse({
     name: formData.get("name"),
     description: formData.get("description"),
@@ -93,11 +104,20 @@ export async function createCookie(
     }
   }
 
-  Cookie.create({
-    name,
-    description,
-    imageUrl,
-  });
+  try {
+    await Cookie.create({
+      name,
+      description,
+      imageUrl,
+      createdBy: session.user.id,
+    });
+  } catch (error) {
+    console.error("Failed to create cookie:", error);
+    return {
+      errors: {},
+      message: "Failed to create cookie. Please try again.",
+    };
+  }
 
   revalidatePath("/cookies");
   redirect("/cookies");

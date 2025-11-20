@@ -5,6 +5,7 @@ const cookieSchema = new Schema(
     name: String,
     description: String,
     imageUrl: String,
+    createdBy: String,
   },
   {
     timestamps: true,
