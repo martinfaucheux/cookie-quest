@@ -23,7 +23,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
           {/* Image container - full width on mobile, left side on desktop */}
           <div className="flex items-start justify-center w-full mb-6 md:mb-0 md:w-1/3 md:h-full">
             <Image
-              src={cookie.imageUrl}
+              src={cookie.imageUrl ?? "/cookie-icon.svg"}
               alt={cookie.name}
               width="400"
               height="400"
