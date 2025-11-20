@@ -35,7 +35,10 @@ export async function createCookie(
 
   if (!validatedFields.success) {
     return {
-      errors: validatedFields.error.flatten().fieldErrors,
+      errors: {
+        ...validatedFields.error.flatten().fieldErrors,
+        image: undefined,
+      },
       message: "Missing Fields. Failed to Create Cookie.",
     };
   }
@@ -50,6 +53,8 @@ export async function createCookie(
     if (!ACCEPTED_IMAGE_TYPES.includes(imageFile.type)) {
       return {
         errors: {
+          name: undefined,
+          description: undefined,
           image: ["Please upload a valid image file (JPEG, PNG, or WebP)"],
         },
         message: "Invalid image format.",
@@ -59,6 +64,8 @@ export async function createCookie(
     if (imageFile.size > MAX_FILE_SIZE) {
       return {
         errors: {
+          name: undefined,
+          description: undefined,
           image: ["Image file size must be less than 5MB"],
         },
         message: "Image file too large.",
@@ -77,6 +84,8 @@ export async function createCookie(
       console.error("Image upload failed:", error);
       return {
         errors: {
+          name: undefined,
+          description: undefined,
           image: ["Failed to upload image. Please try again."],
         },
         message: "Image upload failed.",
@@ -87,6 +96,7 @@ export async function createCookie(
   Cookie.create({
     name,
     description,
+    imageUrl,
   });
 
   revalidatePath("/cookies");
