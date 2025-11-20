@@ -44,8 +44,8 @@ export default async function Page() {
               >
                 <div className="relative w-full pb-[100%] overflow-hidden">
                   <Image
-                    src={cookie.imageUrl}
-                    alt={cookie.name}
+                    src={cookie.imageUrl ?? "/cookie-icon.svg"}
+                    alt={cookie.name ?? "Cookie"}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, (max-width: 1280px) 20vw, 16vw"
                     className="object-cover transition-all duration-300 ease-in-out hover:scale-110"
