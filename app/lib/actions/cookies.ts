@@ -124,23 +124,35 @@ export async function createCookie(
 }
 
 export async function deleteCookie(id: string) {
+  // Get the current user session
+  const session = await getServerSession(authOptions);
+
+  if (!session || !session.user?.id) {
+    throw new Error("You must be logged in to delete a cookie.");
+  }
+
   const cookie = await Cookie.findById(id);
 
-  if (cookie) {
-    // Only delete from Vercel Blob if the image URL is from Vercel Blob
-    if (
-      cookie.imageUrl &&
-      cookie.imageUrl.includes("blob.vercel-storage.com")
-    ) {
-      try {
-        await del(cookie.imageUrl);
-      } catch (error) {
-        console.error("Failed to delete image from Vercel Blob:", error);
-        // Continue with cookie deletion even if image deletion fails
-      }
-    }
-    await Cookie.deleteOne({ _id: id });
-    revalidatePath("/cookies");
-    redirect("/cookies");
+  if (!cookie) {
+    throw new Error("Cookie not found.");
   }
+
+  // Check if the current user is the creator of the cookie
+  if (cookie.createdBy !== session.user.id) {
+    throw new Error("You can only delete cookies you created.");
+  }
+
+  // Only delete from Vercel Blob if the image URL is from Vercel Blob
+  if (cookie.imageUrl && cookie.imageUrl.includes("blob.vercel-storage.com")) {
+    try {
+      await del(cookie.imageUrl);
+    } catch (error) {
+      console.error("Failed to delete image from Vercel Blob:", error);
+      // Continue with cookie deletion even if image deletion fails
+    }
+  }
+
+  await Cookie.deleteOne({ _id: id });
+  revalidatePath("/cookies");
+  redirect("/cookies");
 }

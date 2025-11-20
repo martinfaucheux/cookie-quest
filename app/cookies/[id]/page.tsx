@@ -44,7 +44,10 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
             </p>
             <div className="flex justify-end mt-4">
               <div className="w-auto">
-                <DeleteCookieButton id={cookie.id} />
+                <DeleteCookieButton
+                  id={cookie.id}
+                  createdBy={cookie.createdBy}
+                />
               </div>
             </div>
           </main>
