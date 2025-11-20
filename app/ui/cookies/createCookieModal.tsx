@@ -129,13 +129,14 @@ const CreateCookieModal = () => {
                 </div>
               </div>
               <div className="flex justify-end items-center px-4 gap-2">
-                <button
+                <Button
                   type="button"
-                  className="h-8 px-2 text-sm rounded-md text-black bg-orange-300 cursor-pointer"
                   onClick={handleClose}
+                  className="text-sm"
+                  variant="secondary"
                 >
                   Close
-                </button>
+                </Button>
                 <Button type="submit" className="text-sm">
                   Add Cookie
                 </Button>
