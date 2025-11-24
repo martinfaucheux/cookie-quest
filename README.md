@@ -1,6 +1,6 @@
 # Cookie Quest
 
-Discover the best cookies in town with Cookie Quest! This app helps you find, rate, and share your favorite cookie spots.
+Discover the best cookies in town with Cookie Quest! This app helps you find, rate, and share your favorite cookie spots. Or maybe it's just another project to work my js skills...
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
